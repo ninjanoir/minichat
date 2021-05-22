@@ -1,3 +1,11 @@
+import {css} from "@emotion/react"
+
+const globalStyle = css`
+  padding: 0;
+  margin: 0;
+  box-sizing:border-box;
+
+
 html,
 body {
   padding: 0;
@@ -11,6 +19,12 @@ a {
   text-decoration: none;
 }
 
-* {
+*, *::after, *::before {
   box-sizing: border-box;
+}
+
+`
+
+export {
+  globalStyle,
 }
