@@ -1,30 +1,38 @@
-import {css} from "@emotion/react"
+import { css } from "@emotion/react"
 
-const globalStyle = css`
-  padding: 0;
-  margin: 0;
-  box-sizing:border-box;
+export const globalStyle = css`
+  @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&family=Oxygen:wght@300;400;700&display=swap");
 
+  :root {
+    --page-background: #222;
+    --body-font: "Maven pro", sans-serif;
+    --heading-font: "Oxygen", sans-serif;
+  }
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: var(--body-font);
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--heading-font);
+    }
+  }
 
-*, *::after, *::before {
-  box-sizing: border-box;
-}
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
 `
-
-export {
-  globalStyle,
-}
