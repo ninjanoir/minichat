@@ -12,11 +12,7 @@ export default function Home() {
 
       <main>
         <Header />
-
       </main>
-
-
-
     </>
   )
 }
