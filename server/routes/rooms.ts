@@ -1,9 +1,13 @@
 import { Router, Request, Response } from "express"
+import { applyTryCatch } from "../middlewares/applyTryCatch"
 
-const router = Router()
+const rooms = Router()
 
-router.get("/api/rooms", (req:Request, res: Response) => {
-  res.json({ success: true, message: "what's news ?" })
-})
+rooms.get(
+  "/",
+  applyTryCatch(async (req: Request, res: Response) => {
+    res.json({ success: true, message: "what's news ?" })
+  })
+)
 
-export { router }
+export { rooms }

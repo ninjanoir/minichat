@@ -6,8 +6,8 @@ import * as socketio from "socket.io"
 
 import express, { Express, Request, Response } from "express"
 
-import { router as auth } from "./routes/auth"
-import { router as rooms } from "./routes/rooms"
+import {auth}  from "./routes/auth"
+import {rooms}  from "./routes/rooms"
 
 const PORT: number = parseInt(process.env.PORT || "8000", 10)
 
@@ -31,10 +31,11 @@ nextApp
     app.use(express.json())
     app.use(express.urlencoded({ extended: true }))
 
-    app.use("/", rooms, (req: Request, res: Response) => {
-      return nextApp.render(req, res, "/", req.params) })
+    app.use("/api/rooms", rooms, async (req: Request, res: Response) => {
+      return nextApp.render(req, res, "/", req.body)
+  });
 
-    app.use("/api/auth", auth, (req: Request, res: Response) => {
+    app.use("/api/auth",auth, async(req: Request, res: Response) => {
       return nextApp.render(req, res, "/login", req.body)
     })
 
@@ -43,7 +44,7 @@ nextApp
 
     //running the server
     server.listen(PORT, () => {
-      console.log(`serveur running on port ${PORT} `)
+      console.log(`serveur running on port ${PORT}`)
     })
   })
   .catch((error) => {

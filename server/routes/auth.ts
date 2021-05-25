@@ -1,14 +1,25 @@
 import { Router, Request, Response } from "express"
 import { applyTryCatch } from "../middlewares/applyTryCatch"
+/**
+ *  middleware next() avec redirect  
+ * 
+ * 
+ */
 
-const router = Router()
+const auth = Router()
 
-router.post(
-  "/api/auth",
-  applyTryCatch(async(req: Request, res: Response) => {
-    console.log(req.body)
+auth.post(
+  "/",
+  applyTryCatch(async (req: Request, res: Response) => {
     res.json({ succes: true, message: "tetststststststs" })
   })
 )
 
-export { router }
+auth.get(
+  "/",
+  applyTryCatch(async (req: Request, res: Response) => {
+    res.json({ succes: true, message: "tetststststststs" })
+  })
+)
+
+export { auth }

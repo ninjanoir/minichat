@@ -1,5 +1,7 @@
 import Head from "next/head"
 
+import {NextPageContext} from 'next'
+
 import React, { useState, useEffect, FormEvent } from "react"
 
 const Login = () => {
@@ -21,10 +23,6 @@ const Login = () => {
       .then((response) => console.log(response))
       .catch((error) => console.error(error))
   }
-
-  useEffect(() => {
-    console.log(auth)
-  }, [auth])
 
   return (
     <>
@@ -68,3 +66,17 @@ const Login = () => {
 }
 
 export default Login
+
+
+export  async function getStaticProps(ctx: NextPageContext) {
+
+  const res  = await fetch('http://localhost:8000/api/auth')
+  const response = await res.json()
+  
+    return {
+      props: {
+        data: response
+      }
+    }
+  }
+  
