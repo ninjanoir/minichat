@@ -31,7 +31,8 @@ nextApp
     app.use(express.json())
     app.use(express.urlencoded({ extended: true }))
 
-    app.use("/", rooms)
+    app.use("/", rooms, (req: Request, res: Response) => {
+      return nextApp.render(req, res, "/", req.params) })
 
     app.use("/api/auth", auth, (req: Request, res: Response) => {
       return nextApp.render(req, res, "/login", req.body)
