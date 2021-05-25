@@ -4,9 +4,6 @@ import Head from "next/head"
 // import Image from "next/image"
 import Header from "@components/header"
 
-
-const ROOT_URL = process.env.VERCEL_URL || 'http://localhost:8000'
-
 export default function Home({data}:any) {
 
   console.log(data)
@@ -27,7 +24,10 @@ export default function Home({data}:any) {
 
 export  async function getStaticProps(ctx: NextPageContext) {
 
-const res  = await fetch(`${ROOT_URL}/api/rooms`)
+const ROOT_URL = process.env.VERCEL_URL || 'localhost:8000'
+
+
+const res  = await fetch(`http://${ROOT_URL}/api/rooms`)
 const response = await res.json()
 
   return {
