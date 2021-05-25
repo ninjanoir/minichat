@@ -4,7 +4,7 @@ import {saturn} from './styles'
 const Logo = () => (
 
     <span css={saturn}>
-        Sp<Saturn />ce Chat
+        sp<Saturn />ce chat
     </span>
 
 )

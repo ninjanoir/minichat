@@ -1,8 +1,13 @@
+import {NextPageContext} from 'next'
+
 import Head from "next/head"
 // import Image from "next/image"
 import Header from "@components/header"
 
-export default function Home() {
+export default function Home({data}:any) {
+
+  console.log(data)
+  
   return (
     <>
       <Head>
@@ -16,3 +21,16 @@ export default function Home() {
     </>
   )
 }
+
+export  async function getStaticProps(ctx: NextPageContext) {
+
+const res  = await fetch('http://localhost:8000/api/rooms')
+const response = await res.json()
+
+  return {
+    props: {
+      data: response
+    }
+  }
+}
+
