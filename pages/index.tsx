@@ -29,7 +29,10 @@ export async function getStaticProps(ctx: NextPageContext) {
     : "https://minichat-rouge.vercel.app/"
 
   const res = await fetch(`${server}/api/rooms`)
+
   const response = await res.json()
+  console.log(response)
+
 
   return {
     props: {

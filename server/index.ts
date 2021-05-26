@@ -32,11 +32,11 @@ nextApp
     app.use(express.urlencoded({ extended: true }))
 
     app.use("/api/rooms", rooms, async (req: Request, res: Response) => {
-      return nextApp.render(req, res, "/", req.params)
+      return nextApp.render(req, res, "/", req.body)
   });
 
     app.use("/api/auth",auth, async(req: Request, res: Response) => {
-      return nextApp.render(req, res, "/login", req.params)
+      return nextApp.render(req, res, "/login", req.body)
     })
 
     //return nextHandler on *  routes

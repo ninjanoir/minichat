@@ -6,7 +6,7 @@ const rooms = Router()
 rooms.get(
   "/",
   applyTryCatch(async (req: Request, res: Response) => {
-    res.send({ success: true, message: "what's news ?" })
+    res.json({ success: true, message: "what's news ?" })
   })
 )
 
