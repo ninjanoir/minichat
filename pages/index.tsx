@@ -24,10 +24,12 @@ export default function Home({data}:any) {
 
 export  async function getStaticProps(ctx: NextPageContext) {
 
-const ROOT_URL = process.env.NEXT_PUBLIC_VERCEL_URL || 'http://localhost:8000'
+  const dev = process.env.NODE_ENV !== 'production';
+
+  const server = dev ? 'http://localhost:8000' : 'https://minichat-rouge.vercel.app/';
 
 
-const res  = await fetch(`${ROOT_URL}/api/rooms`)
+const res  = await fetch(`${server}/api/rooms`)
 const response = await res.json()
 
   return {
