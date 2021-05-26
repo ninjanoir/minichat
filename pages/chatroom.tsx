@@ -4,7 +4,7 @@ import { FormEvent, useState, useEffect } from "react"
 
 import { io } from "socket.io-client"
 
-const PRIVATE_URL = process.env.VERCEL_ENV === 'production' ? process.env.VERCEL_URL : "http://localhost:8000"
+const PRIVATE_URL = process.env.VERCEL_URL || "http://localhost:8000"
 
 
 interface Post {
@@ -19,6 +19,7 @@ const ChatRoom = () => {
   const [listMessage, setListMessage] = useState<Post[]>([])
 
   console.log('PRIVATE_URL', process.env.VERCEL_URL )
+
 
   /**
    *
