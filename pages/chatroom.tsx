@@ -4,7 +4,7 @@ import { FormEvent, useState, useEffect } from "react"
 
 import { io } from "socket.io-client"
 
-const PRIVATE_URL = process.env.VERCEL_ENV !== 'production ?"http://localhost:8000":"https://minichat-rouge.vercel.app" 
+const PRIVATE_URL = process.env.VERCEL_ENV !== 'production' ? "http://localhost:8000":"https://minichat-rouge.vercel.app" 
 
 
 console.log(process.env.NODE_ENV)
