@@ -4,8 +4,7 @@ import Head from "next/head"
 // import Image from "next/image"
 import Header from "@components/header"
 
-export default function Home({ data }: any) {
-  console.log(data)
+export default function Home() {
 
   return (
     <>
@@ -21,22 +20,21 @@ export default function Home({ data }: any) {
   )
 }
 
-export async function getStaticProps(ctx: NextPageContext) {
-  const dev = process.env.NODE_ENV !== "production"
+// export async function getStaticProps(ctx: NextPageContext) {
+//   const dev = process.env.NODE_ENV !== "production"
 
-  const server = dev
-    ? "http://localhost:8000"
-    : "https://minichat-rouge.vercel.app/"
+//   const server = dev
+//     ? "http://localhost:8000"
+//     : "https://minichat-rouge.vercel.app/"
 
-  const res = await fetch(`${server}/api/rooms`)
+//   const res = await fetch(`${server}/api/rooms`)
 
-  const response = await res.json()
-  console.log(response)
+//   const response = await res.json()
 
 
-  return {
-    props: {
-      data: response,
-    },
-  }
-}
+//   return {
+//     props: {
+//       data: response,
+//     },
+//   }
+// }
