@@ -7,14 +7,13 @@ import { io } from "socket.io-client"
 const PRIVATE_URL = process.env.HOSTDOMAIN || "http://localhost:8000"
 
 
+console.log(process.env.HOSTDOMAIN)
+
 interface Post {
   post: string
 }
 
 const socket = io(`${PRIVATE_URL}`, { transports: ["websocket"] })
-
-console.log('PRIVATE_URL', process.env.HOSTDOMAIN )
-
 
 const ChatRoom = () => {
   //initialize current component state
