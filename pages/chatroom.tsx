@@ -13,12 +13,14 @@ interface Post {
 
 const socket = io(`${PRIVATE_URL}`, { transports: ["websocket"] })
 
+console.log('PRIVATE_URL', process.env.VERCEL_URL )
+
+
 const ChatRoom = () => {
   //initialize current component state
   const [message, setMessage] = useState("")
   const [listMessage, setListMessage] = useState<Post[]>([])
 
-  console.log('PRIVATE_URL', process.env.VERCEL_URL )
 
 
   /**
