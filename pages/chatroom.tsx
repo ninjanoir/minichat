@@ -13,7 +13,7 @@ interface Post {
 
 const socket = io(`${PRIVATE_URL}`, { transports: ["websocket"] })
 
-console.log('PRIVATE_URL', process.env.VERCEL_URL )
+console.log('PRIVATE_URL', process.env.HOSTDOMAIN )
 
 
 const ChatRoom = () => {
