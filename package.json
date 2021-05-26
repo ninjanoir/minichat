@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev:server": "nodemon --quiet",
-    "dev": "next dev",
-    "build": "next build && tsc -p server/tsconfig.json",
-    "start": "NODE_ENV=production node dist/index.js",
-    "start:next": "next start"
+    "dev": "ts-node --project tsconfig.server.json server/index.ts",
+    "build:server": "tsc --project tsconfig.server.json",
+    "build:next": "next build",
+    "build": "npm run build:next && npm run build:server",
+    "start": "NODE_ENV=production node dist/index.js"
   },
   "dependencies": {
     "@emotion/react": "^11.4.0",
@@ -23,7 +23,6 @@
     "@types/node": "^15.6.1",
     "@types/react": "^17.0.6",
     "@types/react-icons": "^3.0.0",
-    "nodemon": "^2.0.7",
     "ts-node": "^10.0.0",
     "typescript": "^4.2.4"
   }
