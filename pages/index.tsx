@@ -1,13 +1,12 @@
-import {NextPageContext} from 'next'
+import { NextPageContext } from "next"
 
 import Head from "next/head"
 // import Image from "next/image"
 import Header from "@components/header"
 
-export default function Home({data}:any) {
-
+export default function Home({ data }: any) {
   console.log(data)
-  
+
   return (
     <>
       <Head>
@@ -22,20 +21,19 @@ export default function Home({data}:any) {
   )
 }
 
-export  async function getStaticProps(ctx: NextPageContext) {
+export async function getStaticProps(ctx: NextPageContext) {
+  const dev = process.env.NODE_ENV !== "production"
 
-  const dev = process.env.NODE_ENV !== 'production';
+  const server = dev
+    ? "http://localhost:8000"
+    : "https://minichat-rouge.vercel.app/"
 
-  const server = dev ? 'http://localhost:8000' : 'https://minichat-rouge.vercel.app/';
-
-
-const res  = await fetch(`${server}/api/rooms`)
-const response = await res.json()
+  const res = await fetch(`${server}/api/rooms`)
+  const response = await res.json()
 
   return {
     props: {
-      data: response
-    }
+      data: response,
+    },
   }
 }
-

@@ -2,6 +2,8 @@ import Head from "next/head"
 
 import React, { useState, FormEvent } from "react"
 
+const ROOT_URL = process.env.API_URL || "http://localhost:8000"
+
 const Login = () => {
   const [auth, setAuth] = useState({
     email: "",
@@ -11,7 +13,7 @@ const Login = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
 
-    fetch("http://localhost:8000/api/auth", {
+    fetch(`${ROOT_URL}/api/auth`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
