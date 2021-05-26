@@ -4,7 +4,7 @@ import { FormEvent, useState, useEffect } from "react"
 
 import { io } from "socket.io-client"
 
-const PRIVATE_URL = process.env.VERCEL_URL || "http://localhost:8000"
+const PRIVATE_URL = process.env.HOSTDOMAIN || "http://localhost:8000"
 
 
 interface Post {
