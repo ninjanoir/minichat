@@ -4,16 +4,12 @@ import { FormEvent, useState, useEffect } from "react"
 
 import { io } from "socket.io-client"
 
-const PRIVATE_URL = process.env.NODE_ENV !== 'production' ? "http://localhost:8000":"http://minichat-rouge.vercel.app" 
-
-
-console.log(process.env.NODE_ENV)
 
 interface Post {
   post: string
 }
 
-const socket = io(`${PRIVATE_URL}`, { transports: ["websocket"] })
+const socket = io("http://localhost:8000", { transports: ["websocket"] })
 
 const ChatRoom = () => {
   //initialize current component state
