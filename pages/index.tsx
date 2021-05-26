@@ -24,10 +24,10 @@ export default function Home({data}:any) {
 
 export  async function getStaticProps(ctx: NextPageContext) {
 
-const ROOT_URL = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:8000'
+const ROOT_URL = process.env.NEXT_PUBLIC_VERCEL_URL || 'http://localhost:8000'
 
 
-const res  = await fetch(`http://${ROOT_URL}/api/rooms`)
+const res  = await fetch(`${ROOT_URL}/api/rooms`)
 const response = await res.json()
 
   return {
